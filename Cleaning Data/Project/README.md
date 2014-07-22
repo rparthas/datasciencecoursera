@@ -48,7 +48,9 @@ Author: Rajagopal Parthasarathi
 >4. See the tab delimited output file ```tidy.txt``` produced in the same directory
 
 ##Analysis Description
+
 >The R script performs the following action 
+
   >1. Reads all the training and test data set into memory
   >2. Merges the training and test into a single memory object
   >3. ```addActivity```Creates a activity map by merging the activity id and activity levels. It adds the subject details to the original dataset
