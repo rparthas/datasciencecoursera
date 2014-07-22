@@ -49,11 +49,11 @@ Author: Rajagopal Parthasarathi
 
 ##Analysis Description
 >The R script performs the following action 
->1. Reads all the training and test data set into memory
->2. Merges the training and test into a single memory object
->3. ```addActivity```Creates a activity map by merging the activity id and activity levels. It adds the subject details to the original dataset
-as the column
->4. ```filterMeanAndStd```Creates a subset of the data by filtering mean and standard deviation measures
->5. ```tidify``` Master function to create a tidy dataset. It creates a tidy header . The first step is creating a subset and then breaking into
+  >1. Reads all the training and test data set into memory
+  >2. Merges the training and test into a single memory object
+  >3. ```addActivity```Creates a activity map by merging the activity id and activity levels. It adds the subject details to the original dataset
+      as the column
+  >4. ```filterMeanAndStd```Creates a subset of the data by filtering mean and standard deviation measures
+  >5. ```tidify``` Master function to create a tidy dataset. It creates a tidy header . The first step is creating a subset and then breaking into
      required format using ```addHeader``` . Each and every row is processed and broken into subsequent rows
      
