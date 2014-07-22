@@ -38,4 +38,12 @@ Author: Rajagopal Parthasarathi
 
 ##Steps to Run the Project
 
-> We're living the future so
+>1. All Data files must be placed in the source code directory such as 
+>* activity_labels.txt
+>* features.txt
+>* train/X_train.txt & train/y_train.txt & train/subject_train.txt
+>* test/X_test.txt & test/y_test.txt & test/subject_test.txt
+>2. Navigate to the directory and run R in the directory
+>3. Type ```source('run_analysis.R')``` to run the code
+>4. See the tab delimited output file ```tidy.txt``` produced in the same directory
+

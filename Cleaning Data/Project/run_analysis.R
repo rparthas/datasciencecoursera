@@ -1,7 +1,9 @@
 library('data.table')
 library('reshape2')
 
-setAxis <- function(cast,column,vals,values){
+#Adds header for each column by reshaping in the required format
+#Simply matches a particular pattern and sets the passed value for that pattern
+addHeader <- function(cast,column,vals,values){
   result <- 'NA'
   for(i in 1:length(vals)){
     if(grepl(vals[i],column,perl=T)){
@@ -12,7 +14,8 @@ setAxis <- function(cast,column,vals,values){
   cast
 }
 
-#Adds descriptive Activity coloumn for each data
+#Adds Subject details and activity details such as walking
+#Adds Descriptive Activity by merging with activity list
 addActivity <- function(dataSet,activitySet,peopleSet) {
   activities <- read.table('activity_labels.txt')
   activitySet <- merge(activities,activitySet,all=F)
@@ -24,6 +27,8 @@ addActivity <- function(dataSet,activitySet,peopleSet) {
 }
 
 #filters just mean and standard deviation rows from the dataset
+#Does a pattern matching for mean and std.
+#Removes meanfreq and angle from the resulting columns
 filterMeanAndStd <- function(dataSet){
   means <- grepl('mean',tolower(colnames(dataSet)),perl=T) 
   std <- grepl('std',tolower(colnames(dataSet)))
@@ -35,6 +40,9 @@ filterMeanAndStd <- function(dataSet){
 }
 
 #creates a tidy dataset
+#Bulk of the code is involved.
+#Creates a tidy dataset header. Processes each column  of the input dataset by selecting a subset of the original
+#SubSet of data is further processed and broken down into the tidy data format
 tidify <-function(dataSet){
   tidy <- as.data.frame(setNames(replicate(9,numeric(0), simplify = F), c('Person','Activity','Average','Axis','Domain',
                                                                           'Feature','Jerk/Magnitude','Device','Mean/Std')))
@@ -47,17 +55,17 @@ tidify <-function(dataSet){
     molten <- melt(subsetData,id.vars=c('Person','Activity'),measure.vars=column,variable.name='Measure',value.name='Mean')
     cast <- dcast(molten,Person+Activity ~ Measure,fun.aggregate=mean,value.var='Mean')
     colnames(cast)[3] ='Average'
-    cast <- setAxis(cast,column,c('-X','-Y','-Z'),c('X','Y','Z'))    
+    cast <- addHeader(cast,column,c('-X','-Y','-Z'),c('X','Y','Z'))    
     colnames(cast)[length(colnames(cast))] <- 'Axis'
-    cast <- setAxis(cast,column,c('^f','^t'),c('Frequency','Time'))    
+    cast <- addHeader(cast,column,c('^f','^t'),c('Frequency','Time'))    
     colnames(cast)[length(colnames(cast))] <- 'Domain'
-    cast <- setAxis(cast,column,c('Body','Gravity'),c('Body','Gravity'))    
+    cast <- addHeader(cast,column,c('Body','Gravity'),c('Body','Gravity'))    
     colnames(cast)[length(colnames(cast))] <- 'Feature'
-    cast <- setAxis(cast,column,c('Jerk','Magnitude'),c('Jerk','Magnitude'))    
+    cast <- addHeader(cast,column,c('Jerk','Magnitude'),c('Jerk','Magnitude'))    
     colnames(cast)[length(colnames(cast))] <- 'Jerk/Magnitude'
-    cast <- setAxis(cast,column,c('Acc','Gyro'),c('Accelerometer','Gyroscope'))    
+    cast <- addHeader(cast,column,c('Acc','Gyro'),c('Accelerometer','Gyroscope'))    
     colnames(cast)[length(colnames(cast))] <- 'Device'
-    cast <- setAxis(cast,column,c('mean','std'),c('Mean','Standard Deviation'))    
+    cast <- addHeader(cast,column,c('mean','std'),c('Mean','Standard Deviation'))    
     colnames(cast)[length(colnames(cast))] <- 'Mean/Std' 
     tidy <- rbind(tidy,cast)
   }
