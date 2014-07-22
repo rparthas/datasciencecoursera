@@ -42,15 +42,15 @@ Author: Rajagopal Parthasarathi
 > ```
 
 ##Sample Data
-> ```head(tidy)```
+>    head(tidy)
 > 
 >
-> ```
-> Person Activity Axis Domain Feature Jerk/Magnitude        Device Mean/Std     Average
->1        1  WALKING    X   Time    Body             NA Accelerometer     Mean  0.26569692
->36       1  WALKING    Y   Time    Body             NA Accelerometer     Mean -0.01829817
->71       1  WALKING    Z   Time    Body             NA Accelerometer     Mean -0.10784573
->106      1  WALKING    X   Time Gravity             NA Accelerometer     Mean  0.74486741
->141      1  WALKING    Y   Time Gravity             NA Accelerometer     Mean -0.08255626
->176      1  WALKING    Z   Time Gravity             NA Accelerometer     Mean  0.07233987
-> ```
+>    ```
+>    Person Activity Axis Domain Feature Jerk/Magnitude        Device Mean/Std     Average
+>    1        1  WALKING    X   Time    Body             NA Accelerometer     Mean  0.26569692
+>    36       1  WALKING    Y   Time    Body             NA Accelerometer     Mean -0.01829817
+>	 71       1  WALKING    Z   Time    Body             NA Accelerometer     Mean -0.10784573
+>	 106      1  WALKING    X   Time Gravity             NA Accelerometer     Mean  0.74486741
+>	 141      1  WALKING    Y   Time Gravity             NA Accelerometer     Mean -0.08255626
+>	 176      1  WALKING    Z   Time Gravity             NA Accelerometer     Mean  0.07233987
+> 	 ```
