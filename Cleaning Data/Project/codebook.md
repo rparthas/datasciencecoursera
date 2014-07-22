@@ -2,6 +2,19 @@
 Author: Rajagopal Parthasarathi
 
 ##Variable Descriptions
+| Variable Name | Description														 									|
+| ------------- | -----------------------------------------------------------------------------------------------------	|
+| Person		| An identifier of the subject who carried out the experiment 										    |
+| Activity  	| Type of Activity they performed such as WALKING,SITTING  												|
+| Axis  		| Represents the 3 Axes - X or Y or Z . If the Measurement was a mean , axis does not include a value  	|
+| Domain  		| The Measurement domain such as time or frequency in case of sampling  								|
+| Feature  		| Measurement feature . It represents either Body or gravity acceleration signal measured  				|
+| Jerk/Magnitude| Indicates whether the measurement is Jerk or Magnitude signal computed from the original data  		|
+| Device  		| Indicates whether the measure is from Gyroscope or Accelerometer  									|
+| Mean/Std  	| Indicates whether the current measure is actually a mean or standard deviation of the original data  	|
+| Average  		| Contains the computed mean of the data for the above field groupings  								|
+
+
 
 ##Dataset Structure
 
@@ -23,26 +36,27 @@ Author: Rajagopal Parthasarathi
 > 	 $ Average       : num  0.2657 -0.0183 -0.1078 0.7449 -0.0826 ...
 > 	 ``` 
 
->     ```
->     summary(tidy)
->     ```
+>    ```
+>    summary(tidy)
+>	 ```
 >
->      ```
->      Person                    Activity       Axis              Domain            Feature          Jerk/Magnitude        Device         
-> 	   Min.   : 1.00   LAYING            :396   Length:2310        Length:2310        Length:2310        Length:2310        Length:2310       
-> 	   1st Qu.: 8.00   SITTING           :396   Class :character   Class :character   Class :character   Class :character   Class :character  
->      Median :16.00   STANDING          :462   Mode  :character   Mode  :character   Mode  :character   Mode  :character   Mode  :character  
->      Mean   :15.71   WALKING           :396                                                                                                 
->      3rd Qu.:23.00   WALKING_DOWNSTAIRS:264                                                                                                 
->      Max.   :30.00   WALKING_UPSTAIRS  :396                                                                                                 
->      Mean/Std            Average       
->      Length:2310        Min.   :-0.9953  
->      Class :character   1st Qu.:-0.7348  
->      Mode  :character   Median :-0.6271  
->                         Mean   :-0.5090  
->                         3rd Qu.:-0.3756  
->                         Max.   : 0.9084 
->      ```
+>
+>	 ```
+>	 Person                    Activity       Axis              Domain            Feature          Jerk/Magnitude        Device         
+> 	 Min.   : 1.00   LAYING            :396   Length:2310        Length:2310        Length:2310        Length:2310        Length:2310       
+> 	 1st Qu.: 8.00   SITTING           :396   Class :character   Class :character   Class :character   Class :character   Class :character  
+>    Median :16.00   STANDING          :462   Mode  :character   Mode  :character   Mode  :character   Mode  :character   Mode  :character  
+>    Mean   :15.71   WALKING           :396                                                                                                 
+>    3rd Qu.:23.00   WALKING_DOWNSTAIRS:264                                                                                                 
+>    Max.   :30.00   WALKING_UPSTAIRS  :396                                                                                                 
+>    Mean/Std            Average       
+>    Length:2310        Min.   :-0.9953  
+>    Class :character   1st Qu.:-0.7348  
+>    Mode  :character   Median :-0.6271  
+>                       Mean   :-0.5090  
+>                       3rd Qu.:-0.3756  
+>                       Max.   : 0.9084 
+>	 ```
 
 ##Sample Data
 >    
